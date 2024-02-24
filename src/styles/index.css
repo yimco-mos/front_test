@@ -1,0 +1,40 @@
+/* Dentro de un archivo CSS o SCSS */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Fuentes de estilo de letras */
+  --font_rob: "Roboto";
+  --font_mont: "Montserrat";
+  --font_play: "Playfair Display";
+  --font_popp: "Poppins";
+
+  /* Fondos de color */
+  --foondo_d: bg-slate-900;
+  --fondo_l: bg-gray-50;
+  --fondo_tx_d: text-neutral-950;
+  --fondo_tx_l: text-neutral-50;
+}
+
+
+
+body {
+  margin: 0;
+  
+  @apply bg-slate-950 text-neutral-50;
+  font-family: var(--font_popp);
+}
+
+
+h3{
+  padding-left: .5rem;
+  width: 200px;
+  height: 33px;
+  font-family: var(--font_play);
+}
+
+code {
+  font-family: var(--font_mont);
+}
