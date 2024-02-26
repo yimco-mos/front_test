@@ -70,6 +70,7 @@ nav ul {
 .nav_link {
   text-transform: capitalize;
   width: 130px;
+  font-family: var(--font_play);
   height: 220px;
   margin: 0 15px;
   text-decoration: none;

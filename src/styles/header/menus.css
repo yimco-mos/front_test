@@ -23,6 +23,7 @@
 
 .content_miniHeader{
     @apply bg-sky-900;
+    padding: 1rem;
     border-radius: 12px  12px 0 0 ;
     width: 100%;
     height: 100%;
@@ -33,7 +34,11 @@
 .flex_mini{
     text-align: center;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+}
+
+.flex_mini{
+    
 }
 
 .content_navs_menu{

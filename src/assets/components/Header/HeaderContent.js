@@ -12,7 +12,7 @@ export const HeaderContent = () => {
 
 
 
-      <div className="content_logo"><Link to={"/productos"}>
+      <div className="content_logo"><Link to={"/"}>
 
       <div className="logo_shop"></div>
       </Link>

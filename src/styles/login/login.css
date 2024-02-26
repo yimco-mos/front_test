@@ -1,0 +1,45 @@
+.content_secion{
+    width: 100%;
+    margin: 0 auto;
+    max-width: 950px;
+    @apply bg-gray-600;
+
+}
+
+.titulo_form{
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.titulo_form h2 {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+
+}
+
+.body_inputsec{
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    max-width: 400px;
+    
+}
+
+
+.label_sec{ 
+    font-size: var(--font_play);
+   }
+
+.form_sec{
+    width: 100%;
+    background: red;
+    max-width: 900px;
+    
+}
+
+.form_sec form button{
+}

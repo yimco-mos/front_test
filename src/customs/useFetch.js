@@ -14,8 +14,6 @@ export const useTextInput = (initialValue) => {
   return { value, onChange: handleChange, reset };
 };
 
-
-
 export const usePostProducto = (url) => {
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
@@ -88,7 +86,7 @@ export const useFetchGet = (url) => {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error('Error al obtener los datos');
+          throw new Error("Error al obtener los datos");
         }
         const data = await response.json();
         setData(data);
@@ -107,9 +105,9 @@ export const useFetchGet = (url) => {
 
 export const usePostTienda = (url) => {
   const [formData, setFormData] = useState({
-    nombre: '',
-    direccion: '',
-    ciudad: '',
+    nombre: "",
+    direccion: "",
+    ciudad: "",
   });
   const [error, setError] = useState(null);
   const [responseData, setResponseData] = useState(null);
@@ -126,15 +124,15 @@ export const usePostTienda = (url) => {
 
     try {
       const response = await fetch(url, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
 
       if (!response.ok) {
-        throw new Error('Error al enviar los datos');
+        throw new Error("Error al enviar los datos");
       }
 
       const data = await response.json();
@@ -146,5 +144,50 @@ export const usePostTienda = (url) => {
     }
   };
 
-  return { formData, error, responseData, showResponse, handleChange, postData };
+  return {
+    formData,
+    error,
+    responseData,
+    showResponse,
+    handleChange,
+    postData,
+  };
+};
+
+
+export const useLogin = (url) => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [loginStatus, setLoginStatus] = useState(false); 
+
+  const login = async (email, pass) => {
+    setLoading(true);
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, pass }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Error al iniciar sesión');
+      }
+
+      const data = await response.json();
+      const status = data.login;
+      if (status === 1) {
+        setLoginStatus(true);
+      } else {
+        setLoginStatus(false);
+      }
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return { loading, error, login, loginStatus }; 
 };

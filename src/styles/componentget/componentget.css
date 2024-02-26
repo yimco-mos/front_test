@@ -39,7 +39,7 @@
     width: 100%;
     border-radius: 12px 0 12px 0;
     max-width: 650px;
-    height: 420px;
+    height: 450px;
     box-shadow: -1px 4px 6px 7px rgba(0,0,0,0.75);
     margin-bottom: 1rem;
 }
@@ -183,9 +183,9 @@ form{
 height: 100%;
 }
 input{
+
     border-radius:6px;
-    @apply text-slate-950;
-    @apply bg-gray-600;
+    @apply bg-neutral-600;
 }
 
 

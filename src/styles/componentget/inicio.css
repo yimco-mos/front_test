@@ -1,0 +1,134 @@
+.container_inicio {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  background: #6666661c;
+  border-radius: 12px;
+  width: 100%;
+  min-height: 350px;
+  display: block;
+  box-shadow: 24px 29px 18px -16px rgba(0,0,0,0.75);
+  height: 100%;
+  max-width: 1250px;
+}
+
+.contenido_inicio {
+  text-align: left;
+  margin-bottom: 40px;
+  width: 100%;
+  padding-top: 1.5rem;
+  padding-left: 0.5rem;
+}
+
+.content_asides {
+    justify-content: center;
+margin: 0 auto;
+  display: grid;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.img_tagertInit1 {
+  width: 110px;
+  
+  background-size: cover;
+  background-image: url("https://img.icons8.com/color-glass/100/small-business.png");
+  max-height: 120px;
+}
+
+.img_tagertInit2 {
+  width: 130px;
+  margin: .5rem;
+  background-size: cover;
+  background-image: url("https://img.icons8.com/color/180/people-skin-type-7.png");
+  max-height: 180px;
+}
+.img_tagertInit3 {
+  width: 120px;
+  background-size: cover;
+
+  background-image: url("https://img.icons8.com/arcade/100/shopping-cart--v1.png");
+  height: 100px;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-family: var(--font_play);
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+  height: 120px;
+  padding-left: 1.5rem;
+  @apply text-white;
+  margin-bottom: 10px;
+  font-family: var(--font_play);
+}
+
+.titulo_principal{
+  padding-bottom:2.5rem ;
+
+}
+
+h2 {
+    text-transform: uppercase;
+    font-family: var(--font_play);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    padding-left: 1.5rem;
+    @apply text-white;
+    margin-bottom: 10px;
+    font-family: var(--font_play);
+  }
+
+
+
+.opcion_initbtn{
+    @apply text-white;
+    margin: 0 10px;
+    border-radius: 12px;
+    transition: all .3s ease-in;
+    background: rgba(139, 139, 139, 0.069);
+}
+.opcion_initbtn:hover{
+@apply bg-neutral-50;
+@apply text-neutral-950;
+
+}
+
+
+.descripcion_inicio {
+  font-family: "poppins";
+    padding-left: 2.5rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.descripcion_inicio p {
+  padding-top: 1.5rem;
+
+  text-align: left;
+  max-width: 600px;
+}
+
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+  }
+.contenido_inicio{
+    width: 100%;
+
+}
+    .content_asides{
+        width: 100%;
+    }
+
+  .container_inicio{
+    display: block;
+  }
+}

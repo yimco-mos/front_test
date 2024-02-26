@@ -1,5 +1,5 @@
 import React from 'react';
-
+//no tocar este archivo de inputs
 export const InputForm = ({ formData, handleChange, fields, message, labels }) => {
   return (
     <div>
