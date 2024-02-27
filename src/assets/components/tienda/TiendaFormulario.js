@@ -33,7 +33,10 @@ export const TiendaFormulario = () => {
         route2="/tiendas"
       />
       <form onSubmit={handleSubmit}>
-        <InputForm
+
+
+          <div className="tienda_prods">
+          <InputForm
           labels={labels}
           formData={formData}
           handleChange={handleChange}
@@ -43,12 +46,14 @@ export const TiendaFormulario = () => {
         <div style={{ width: "100%", maxWidth: "280px", margin: "0 auto" }}>
           <label htmlFor="ciudad">Ciudad:</label>
           <select
-            style={{ color: "#777", padding: ".5rem", margin: ".5rem" }}
+            style={{ color: "#151515e6", padding: ".5rem", margin: ".5rem" }}
             id="ciudad"
             name="ciudad"
+            
             value={formData.ciudad}
             onChange={handleChange}
           >
+            <option value="SMR">selecciona una ciudad</option>
             <option value="SMR">Santa Marta</option>
             <option value="BOG">Bogotá</option>
             <option value="MED">Medellín</option>
@@ -61,7 +66,7 @@ export const TiendaFormulario = () => {
           </button>
         </div>
 
-        {error && <div>Error: {error.message}</div>}
+        {error && alert('Datos de la tienda no valida')}
 
         {showResponse && responseData && (
           <div className="content_target">
@@ -75,6 +80,9 @@ export const TiendaFormulario = () => {
             </div>
           </div>
         )}
+          </div>
+
+
       </form>
     </>
   );

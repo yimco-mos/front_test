@@ -162,18 +162,26 @@ font-family: var(--font_mont);
 }
 
 form{
-    @apply bg-gray-400;
     width: 100%;
     max-width: 650px;
     display: block;
     height: 100%;
     margin: 0 auto;
-}
-.content-form{
-    width: 100%;
-    max-width: 950px;
+    overflow: hidden;
     height: 100%;
+
+    max-height: 700px;
+    
+}
+.tienda_prods{
+    @apply text-neutral-950;
+    @apply bg-gray-200;
+    width: 100%;
+    padding-top: 1.5rem;
+    max-width: 950px;
+    height: 800px;
     margin: 0 auto;
+    
     justify-content: center;
 }
 
@@ -185,7 +193,8 @@ height: 100%;
 input{
 
     border-radius:6px;
-    @apply bg-neutral-600;
+    padding: .5rem;
+    @apply bg-gray-200;
 }
 
 

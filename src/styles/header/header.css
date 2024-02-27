@@ -100,6 +100,9 @@ nav ul {
 }
 .content_enviar:hover{
     @apply bg-neutral-50;
+  color: rgba(0, 123, 255, 0.7);
+    
+
 }
 
 .sub_header button {

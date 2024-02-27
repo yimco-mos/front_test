@@ -39,6 +39,8 @@ export const FormsProducto = () => {
         route1="/productos"
       />
       <form onSubmit={handleSubmit}>
+     
+        <div className="tienda_prods">
         <InputForm
           labels={labels}
           formData={formData}
@@ -66,7 +68,7 @@ export const FormsProducto = () => {
           </button>
         </div>
 
-        {error && <div>Error: {error.message}</div>}
+        {error && alert('Tipo de producto no permitido')}
 
         {showResponse && (
           <div className="content_target">
@@ -86,6 +88,8 @@ export const FormsProducto = () => {
             </div>
           </div>
         )}
+        </div>
+
       </form>
     </>
   );

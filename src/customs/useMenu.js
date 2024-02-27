@@ -5,7 +5,6 @@ export const useMenu = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(e=>!e);
-    console.log('menu movil')
   };
 
   return {

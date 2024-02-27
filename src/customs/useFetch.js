@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export const useTextInput = (initialValue) => {
   const [value, setValue] = useState(initialValue);
@@ -81,24 +81,26 @@ export const useFetchGet = (url) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(url);
-        if (!response.ok) {
-          throw new Error("Error al obtener los datos");
-        }
-        const data = await response.json();
-        setData(data);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+  const fetchData = useCallback(async () => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Error al obtener los datos");
       }
-    };
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+    console.log('ingress')
+  }, []);
 
+
+  useEffect(() => {
     fetchData();
-  }, [url]);
+  }, [fetchData]);
 
   return { data, loading, error };
 };
@@ -154,40 +156,75 @@ export const usePostTienda = (url) => {
   };
 };
 
+export const useUser = (url, method, data = {}) => {
+  const [dataUser, setDataUser] = useState([]);
 
-export const useLogin = (url) => {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [loginStatus, setLoginStatus] = useState(false); 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    ciudad: "",
+    pass: "",
+    admis: "",
+  });
 
-  const login = async (email, pass) => {
-    setLoading(true);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    setFormData({
+      email: "",
+      pass: "",
+    });
+
+    const requestOptions = {
+      method: method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+
     try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, pass }),
-      });
+      const response = await fetch(url, requestOptions);
 
       if (!response.ok) {
-        throw new Error('Error al iniciar sesión');
+        throw new Error("Error al iniciar sesión");
       }
 
-      const data = await response.json();
-      const status = data.login;
-      if (status === 1) {
-        setLoginStatus(true);
-      } else {
-        setLoginStatus(false);
+      const res = await response.json();
+      setDataUser(res)
+      if (res.login === 1) {
+        const status = (res.login = true);
+        console.log(res);
+        sessionStorage.setItem("act", status);
+        window.location.href = "/";
+        const handleBackButton = (event) => {
+          window.history.replaceState(null, null, "/");
+        };
+
+        window.addEventListener("popstate", handleBackButton);
+
+        return () => {
+          window.removeEventListener("popstate", handleBackButton);
+        };
+      }
+      if (res.admis === true) {
+        const status = res.admis;
+        sessionStorage.setItem("adm", status);
       }
     } catch (error) {
-      setError(error.message);
-    } finally {
-      setLoading(false);
+      console.error("Error al iniciar sesión:", error.message);
+      alert("Error al iniciar sesión. Por favor, inténtalo de nuevo.");
     }
   };
 
-  return { loading, error, login, loginStatus }; 
+  return {
+    dataUser,
+    formData,
+    handleChange,
+    handleLogin,
+  };
 };
