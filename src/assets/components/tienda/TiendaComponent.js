@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 export const TiendaComponent = () => {
   const { data, loading, error } = useFetchGet(TIENDA_URL);
   const { start, nextPage, previousPage } = usePagination();
+  const adm = sessionStorage.getItem('adm')
 
   const itemsPerLoad = 3;
 
@@ -39,7 +40,8 @@ export const TiendaComponent = () => {
               <h3 style={{fontSize:'1rem'}}>{tienda.nombre}</h3>
               <p><img src="https://img.icons8.com/fluency/18/shop.png" alt="shop"/> Dirección: {tienda.direccion}</p>
               <p><img alt="img" src="https://img.icons8.com/3d-fluency/14/location.png" /> Ciudad: {tienda.ciudad}</p>
-              <div style={{display:'flex'}}><Link to={`/tiendas/details/${tienda.id}`}>
+              <div style={{display:'flex'}}>
+                <Link to={`/tiendas/details/${tienda.id}`}>
               <span
                 style={{
                   padding:'.5rem',
@@ -51,7 +53,10 @@ export const TiendaComponent = () => {
               >
                 Ver detalles
               </span>
-            </Link><Link to={`/tiendas/edit_tienda/${tienda.id}`}>
+            </Link>
+           
+                {!adm && <>
+                  <Link to={`/tiendas/edit_tienda/${tienda.id}`}>
               <span
                 style={{
                   padding:'.5rem',
@@ -64,7 +69,8 @@ export const TiendaComponent = () => {
               >
                 Editar
               </span>
-            </Link><Link to={`/tiendas/delete_tienda/${tienda.id}`}>
+            </Link>
+            <Link to={`/tiendas/delete_tienda/${tienda.id}`}>
               <span
                 style={{
                   padding:'.5rem',
@@ -77,7 +83,10 @@ export const TiendaComponent = () => {
               >
                Eliminar
               </span>
-            </Link></div>
+            </Link>
+                </>}
+           
+           </div>
             </div>
           ))}
         </div>

@@ -94,9 +94,8 @@ export const useFetchGet = (url) => {
     } finally {
       setLoading(false);
     }
-    console.log('ingress')
+    console.log("ingress");
   }, []);
-
 
   useEffect(() => {
     fetchData();
@@ -157,7 +156,7 @@ export const usePostTienda = (url) => {
 };
 
 export const useUser = (url, method, data = {}) => {
-  const [dataUser, setDataUser] = useState([]);
+  
 
   const [formData, setFormData] = useState({
     name: "",
@@ -193,14 +192,15 @@ export const useUser = (url, method, data = {}) => {
       if (!response.ok) {
         throw new Error("Error al iniciar sesión");
       }
-
       const res = await response.json();
-      setDataUser(res)
+      
+      sessionStorage.setItem('dataUser', JSON.stringify(res));
       if (res.login === 1) {
-        const status = (res.login = true);
-        console.log(res);
-        sessionStorage.setItem("act", status);
+        const status = true;
+    e.preventDefault();
+
         window.location.href = "/";
+        sessionStorage.setItem("act", status);
         const handleBackButton = (event) => {
           window.history.replaceState(null, null, "/");
         };
@@ -222,7 +222,7 @@ export const useUser = (url, method, data = {}) => {
   };
 
   return {
-    dataUser,
+    
     formData,
     handleChange,
     handleLogin,

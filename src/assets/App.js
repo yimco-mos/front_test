@@ -50,13 +50,13 @@ function App() {
 
       <div style={{ marginTop: "150px" }}>
         <Routes>
-        <Route path="/" element={<Inicio />} />
+          <Route path="/" element={<Inicio />} />
 
           {!act && (
             <>
+              <Route path="/login" element={<Login />} />
 
               <Route path="/registrarse" element={<CreateUser />} />
-              <Route path="/login" element={<Login />} />
             </>
           )}
 
@@ -86,7 +86,10 @@ function App() {
               />
             </>
           ) : (
-            <> <Route path="*" element={<Inicio />} /> </>
+            <>
+              {" "}
+              <Route path="*" element={<Inicio />} />{" "}
+            </>
           )}
         </Routes>
       </div>

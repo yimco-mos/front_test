@@ -5,16 +5,15 @@ export const FormSecion = ({
   ChildrenInput,
   handleClickLogin,
   ciudadesSelect,
-  title_fom,
+  title_form,
   action_btn,
 }) => {
   return (
     <div className="content_secion">
       <div className="form_sec">
-        onSubmit={handleClickLogin}
-        <form onSubmit={(e)=>handleClickLogin(e)}>
+        <form onSubmit={(e) => handleClickLogin(e)}>
           <div className="titulo_form">
-            <h2>{title_fom}</h2>
+            <h2>{title_form}</h2>
           </div>
           {ChildrenInput}
           {ciudadesSelect}

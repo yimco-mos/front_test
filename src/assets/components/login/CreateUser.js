@@ -27,8 +27,8 @@ export const CreateUser = () => {
   return (
     <div className="content_inputsec">
       <FormSecion
-        action_btn={"Registrarse"}
         title_form={"Crear Usuario"}
+        action_btn={"Registrarse"}
         handleClickLogin={handleLogin}
         ChildrenInput={
           <>
