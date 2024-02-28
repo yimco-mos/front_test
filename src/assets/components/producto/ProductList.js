@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 
-export const ProductList = ({ data, error, responseData }) => {
+export const ProductList = memo(({ data, error, responseData }) => {
   return (
     <div>
       <div className="content_target">
@@ -77,4 +77,4 @@ export const ProductList = ({ data, error, responseData }) => {
       )}
     </div>
   );
-};
+})
